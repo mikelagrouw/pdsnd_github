@@ -5,6 +5,7 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
+days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday','all']
 
 def get_filters():
     """
@@ -35,7 +36,7 @@ def get_filters():
         if month not in months:
             print('Oops it seems like you mispelled the name of the month\n')
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday','all']
+
     day=[]
     while day not in days:
         day=input('Please type the name of the day (or "all") of which you want to explore the data: ')
@@ -74,7 +75,7 @@ def load_data(city, month, day):
         df = df[df['month'] == month]
 
     if day != 'all':
-        days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday']
+
         day = days.index(day) + 1
         df = df[df['day'] == day]
 
@@ -96,7 +97,7 @@ def time_stats(df):
     print('the most common month in the selected data is {}.'.format(months[month-1]))
 
     # TO DO: display the most common day of week
-    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday']
+
     day=df['day'].mode()[0]
 
     print('the most common day in the selected data is {}.'.format(days[day-1]))
