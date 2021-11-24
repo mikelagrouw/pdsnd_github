@@ -30,7 +30,7 @@ def get_filters():
     months = ['january', 'february', 'march', 'april', 'may', 'june','all']
     month=[]
     while month not in months:
-        month=input('Please type the name of the month (januari-june,or all) of which you want to explore the data: ')
+        month=input('Please type the name of the month (january-june,or all) of which you want to explore the data: ')
         month=month.lower()
         if month not in months:
             print('Oops it seems like you mispelled the name of the month\n')
