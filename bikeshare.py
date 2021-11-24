@@ -5,6 +5,8 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
+days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday','all']
+months = ['january', 'february', 'march', 'april', 'may', 'june','all']
 
 def get_filters():
     """
@@ -27,15 +29,15 @@ def get_filters():
 
     print(city)
     # TO DO: get user input for month (all, january, february, ... , june)
-    months = ['january', 'february', 'march', 'april', 'may', 'june','all']
+
     month=[]
     while month not in months:
-        month=input('Please type the name of the month (januari-june,or all) of which you want to explore the data: ')
+        month=input('Please type the name of the month (january-june,or all) of which you want to explore the data: ')
         month=month.lower()
         if month not in months:
             print('Oops it seems like you mispelled the name of the month\n')
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday','all']
+
     day=[]
     while day not in days:
         day=input('Please type the name of the day (or "all") of which you want to explore the data: ')
@@ -69,12 +71,12 @@ def load_data(city, month, day):
 
     if month != 'all':
 
-        months = ['january', 'february', 'march', 'april', 'may', 'june']
+
         month = months.index(month) + 1
         df = df[df['month'] == month]
 
     if day != 'all':
-        days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday']
+
         day = days.index(day) + 1
         df = df[df['day'] == day]
 
@@ -86,7 +88,7 @@ def time_stats(df):
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
-    months = ['january', 'february', 'march', 'april', 'may', 'june']
+
     # TO DO: display the most common month
     print(df.head(7))
     print(df['month'].mode())
@@ -96,7 +98,7 @@ def time_stats(df):
     print('the most common month in the selected data is {}.'.format(months[month-1]))
 
     # TO DO: display the most common day of week
-    days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday','sunday']
+
     day=df['day'].mode()[0]
 
     print('the most common day in the selected data is {}.'.format(days[day-1]))
