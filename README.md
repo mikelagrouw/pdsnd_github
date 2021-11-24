@@ -7,7 +7,7 @@
 Bikeshare data analysis
 
 ### Description
-User-interface takes users desired time and place for analysis and input and provides core statistics of the selected data
+User-interface that takes users desired time and place for analysis and input and provides core statistics of the selected data
 
 ### Files used
 bikeshare.py
